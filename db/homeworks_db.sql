@@ -7,19 +7,16 @@ CREATE TABLE user(
     usu_telefono VARCHAR(50) NOT NULL,
     usu_apodo VARCHAR(50) NOT NULL,
     usu_created_at TIMESTAMP NOT NULL,
-    usu_updated_at TIMESTAMP NOT NULL
+    usu_updated_at TIMESTAMP NULL
 );
 CREATE TABLE estado(
     estado_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    estado_nombre VARCHAR(100) NOT NULL,
-    estado_created_at TIMESTAMP NOT NULL,
-    estado_updated_at TIMESTAMP NOT NULL
+    estado_nombre VARCHAR(100) NOT NULL
 );
 CREATE TABLE tipo(
     tipo_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     tipo_nombre VARCHAR(200) NOT NULL,
-    tipo_created_at TIMESTAMP NOT NULL,
-    tipo_updated_at TIMESTAMP NOT NULL
+    tipo_created_at TIMESTAMP NOT NULL
 );
 CREATE TABLE tarea(
     tarea_id INT(11) PRIMARY KEY AUTO_INCREMENT,
