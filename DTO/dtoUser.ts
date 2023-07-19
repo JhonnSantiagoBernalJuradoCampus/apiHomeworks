@@ -1,6 +1,6 @@
 import { Expose, Transform } from "class-transformer";
 import validator from "validator";
-const { isEmail} = validator;
+const { isEmail, isInt } = validator;
 export class dtoUser{
     @Expose({ name: "nombre" })
     @Transform(({ value }) => {
@@ -38,5 +38,18 @@ export class dtoUser{
         this.usu_email = usu_email;
         this.usu_telefono = usu_telefono;
         this.usu_apodo = usu_apodo;
+    }
+}
+
+export class dtoUserParams{
+    @Expose({ name: "id" })
+    @Transform(({ value }) => {
+        if (isInt(value, { min: 1, max: 100 })) return value;
+        else throw { status: 400, message: "Error en el parametro id" }
+    })
+    id: number;
+    
+    constructor(id: number) {
+        this.id = id;
     }
 }
