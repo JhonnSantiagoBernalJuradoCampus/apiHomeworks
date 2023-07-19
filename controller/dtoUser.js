@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Expose, Transform } from "class-transformer";
 import validator from "validator";
-const { isEmail, isInt } = validator;
+const { isEmail } = validator;
 export class dtoUser {
     constructor(usu_nombre, usu_email, usu_telefono, usu_apodo) {
         this.usu_nombre = usu_nombre;
@@ -61,18 +61,3 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], dtoUser.prototype, "usu_apodo", void 0);
-export class dtoUserParams {
-    constructor(id) {
-        this.id = id;
-    }
-}
-__decorate([
-    Expose({ name: "id" }),
-    Transform(({ value }) => {
-        if (isInt(value, { min: 1, max: 100 }))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parametro id" };
-    }),
-    __metadata("design:type", Number)
-], dtoUserParams.prototype, "id", void 0);
