@@ -40,5 +40,18 @@ appTipo.post('/', proxyTipo ,(req, res) => {
         }
     )
 })
+appTipo.delete('/:id', proxyIds, (req,res) =>{
+    con.query(
+        /*sql */`DELETE FROM tipo WHERE tipo_id = ?`,
+        req.params.id,
+        (err,data,fill)=>{
+            if(err){
+                console.log(err);
+                res.status(400).send("Error al eliminar datos")
+            }
+            res.send(`El usuario con id ${req.params.id} se ha eliminado :v`)
+        }
+    )
+})
 
 export default appTipo;
