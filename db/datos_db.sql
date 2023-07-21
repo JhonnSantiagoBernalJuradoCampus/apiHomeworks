@@ -1,6 +1,8 @@
 INSERT INTO user (usu_nombre,usu_email,usu_telefono,usu_apodo, usu_created_at) VALUES 
 ("Jhon Santiago Bernal Jurado", "jbernalsantiago11@gmail.com", "3123860656", "Bernal", CURDATE()),
-("Angie Nathalia Suarez Perez", "angienatalia@gmail.com", "3118128060", "Angie", CURDATE());
+("Angie Nathalia Suarez Perez", "angienatalia@gmail.com", "3118128060", "Angie", CURDATE()),
+("Angela Esperanza Almeida Amaya", "angela@gmail.com", "3118124232", "Angela", CURDATE()),
+("James Ronald Bernal Bermudez", "ronald@gmail.com", "312741832", "James", CURDATE());
 
 INSERT INTO estado (estado_nombre) VALUES
 ("Pendiente"),
