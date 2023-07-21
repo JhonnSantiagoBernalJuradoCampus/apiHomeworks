@@ -15,7 +15,9 @@ appTarea.get('/:id?', proxyIds, (req, res) => {
         : ['SELECT * FROM tarea']
     con.query(...sql,
         (err, data, fill) => {
-            res.send(data);
+            (Object.entries(data).length === 0)
+            ? res.status(400).send("Dato no encontrado")
+            : res.send(data);
         }
     )
 })
