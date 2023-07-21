@@ -27,14 +27,13 @@ appUser.post('/', proxyUser ,(req, res) => {
     /**
      * @var {req.body}
      * req.body =
-     *      {
-     *          "nombre": "Angela Esperanza Almeida Rincon", 
-     *          "email": "angelajurado@gmail.com", 
-     *          "telefono": "3118124321", 
-     *          "apodo": "Angie"
-     *      }
+     *  {
+            "usu_nombre": "Angela Esperanza Almeida Xd", 
+            "usu_email": "angelajurado@gmail.com", 
+            "usu_telefono": "3118124321", 
+            "usu_apodo": "Angie"
+        }
     */
-    const { usu_nombre, usu_email, usu_telefono, usu_apodo } = req.body;
 
     con.query(
         /*sql */`INSERT INTO user (usu_nombre,usu_email,usu_telefono, usu_apodo, usu_created_at) VALUES (?,?,?,?,CURDATE())`,
@@ -46,6 +45,25 @@ appUser.post('/', proxyUser ,(req, res) => {
             res.send("Datos subidos con exito");
         }
     );
+})
+appUser.put('/:id', (req,res)=>{
+    /**
+     * @var {req.body, req.id}
+     *  req.body = {
+            "usu_nombre": "Angela Esperanza Almeida Suarez", 
+            "usu_email": "angelajurado@gmail.com", 
+            "usu_telefono": "3118124321", 
+            "usu_apodo": "Angie"
+     *      }
+     */
+    con.query(
+        /*sql */`UPDATE user SET ? WHERE usu_id = ?`,
+        [req.body, req.params.id],
+        (err,data,fill)=>{
+            if(err) console.log(err);
+            res.send("Datos actualizados correctamente");
+        }
+    )
 })
 
 export default appUser;
