@@ -2,6 +2,7 @@ import { Router } from "express";
 import dotenv from "dotenv";
 import mysql from "mysql2";
 import proxyIds from "../middleware/proxyIds.js";
+import proxyTarea from "../middleware/proxyTarea.js";
 dotenv.config();
 
 const appTarea = Router();
@@ -21,16 +22,16 @@ appTarea.get('/:id?', proxyIds, (req, res) => {
         }
     )
 })
-appTarea.post('/', (req,res)=>{
+appTarea.post('/',proxyTarea, (req,res)=>{
     /**
      * @var {req.body}
      * req.body = {
-            "tarea_titulo": "Fullstack",
-            "tarea_descripcion": "Realizar un proyecto con node y vue",
-            "tarea_fecha": "2023-07-29",
-            "tarea_recordatorio": "2023-07-29 09:00:00",
-            "id_user": 2,
-            "id_tipo": 3
+            "titulo": "Fullstack",
+            "descripcion": "Realizar un proyecto con node y vue",
+            "fecha": "2023-07-29",
+            "recordatorio": "2023-07-29 09:00:00",
+            "user": 2,
+            "tipo": 3
         }
      */
     const {tarea_titulo, tarea_descripcion, tarea_fecha, tarea_recordatorio, id_user, id_tipo } = req.body;
@@ -43,7 +44,6 @@ appTarea.post('/', (req,res)=>{
             }
             res.send(`Datos subidos con exito`);
         }
-
     )
 })
 
