@@ -10,20 +10,20 @@ let dbConfig = JSON.parse(process.env.DB_CONFIG);
 const con = mysql.createPool(dbConfig);
 
 
-appUser.get('/:id?', proxyIds , (req, res) => {
+appUser.get('/:id?', proxyIds, (req, res) => {
     const sql = (req.params.id)
         ? [`SELECT * FROM user WHERE usu_id = ?`, req.params.id]
         : [`SELECT * FROM user`];
     con.query(...sql,
         (err, data, fill) => {
             (Object.entries(data).length === 0)
-            ? res.status(400).send("Dato no encontrado")
-            : res.send(data);
+                ? res.status(400).send("Dato no encontrado")
+                : res.send(data);
         }
     )
 });
 
-appUser.post('/', proxyUser ,(req, res) => {
+appUser.post('/', proxyUser, (req, res) => {
     /**
      * @var {req.body}
      * req.body =
@@ -46,7 +46,7 @@ appUser.post('/', proxyUser ,(req, res) => {
         }
     );
 })
-appUser.put('/:id', proxyUser, proxyIds ,(req,res)=>{
+appUser.put('/:id', proxyUser, proxyIds, (req, res) => {
     /**
      * @var {req.body, req.id}
      *  req.body = {
@@ -57,11 +57,19 @@ appUser.put('/:id', proxyUser, proxyIds ,(req,res)=>{
      *      }
      */
     con.query(
-        /*sql */`UPDATE user SET ? WHERE usu_id = ?`,
-        [req.body, req.params.id],
-        (err,data,fill)=>{
-            if(err) console.log(err);
-            res.send("Datos actualizados correctamente");
+        /*sql */`SELECT * FROM user WHERE usu_id = ?`,
+        req.params.id,
+        (err, data, fill) => {
+            (Object.entries(data).length === 0)
+                ? res.status(400).send("Dato no encontrado")
+                : con.query(
+                /*sql */`UPDATE user SET ? WHERE usu_id = ?`,
+                    [req.body, req.params.id],
+                    (err, data, fill) => {
+                        if (err) console.log(err);
+                        res.send("Datos actualizados correctamente");
+                    }
+                )
         }
     )
 })
