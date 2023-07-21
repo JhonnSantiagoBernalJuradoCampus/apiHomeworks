@@ -80,7 +80,7 @@ appUser.delete("/:id", proxyIds, (req,res)=>{
         (err,data,fill)=>{
             if(err){
                 console.log(err);
-                res.status(400).send("Error al actualizar datos");
+                res.status(400).send("Error al eliminar datos");
             }
             res.send(`El usuario con id ${req.params.id} se ha eliminado :v`)   
         }
