@@ -11,10 +11,9 @@ const con = mysql.createPool(dbConfig);
 
 appTipo.get('/:id?', proxyIds , (req, res) => {
     let sql = (req.params.id)
-        ? ["SELECT * FROM tipo WHERE tipo_id = ?"]
+        ? ["SELECT * FROM tipo WHERE tipo_id = ?",req.params.id]
         : ["SELECT * FROM tipo"]
     con.query(...sql,
-        req.params.id,
         (err, data, fill) => {
             res.send(data);
         }
