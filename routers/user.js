@@ -73,5 +73,17 @@ appUser.put('/:id', proxyUser, proxyIds, (req, res) => {
         }
     )
 })
-
+appUser.delete("/:id", proxyIds, (req,res)=>{
+    con.query(
+        /*sql */`DELETE FROM user WHERE usu_id = ?`,
+        req.params.id,
+        (err,data,fill)=>{
+            if(err){
+                console.log(err);
+                res.status(400).send("Error al actualizar datos");
+            }
+            res.send(`El usuario con id ${req.params.id} se ha eliminado :v`)   
+        }
+    )
+})
 export default appUser;
