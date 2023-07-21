@@ -40,6 +40,9 @@ appUser.post('/', proxyUser ,(req, res) => {
         /*sql */`INSERT INTO user (usu_nombre,usu_email,usu_telefono, usu_apodo, usu_created_at) VALUES (?,?,?,?,CURDATE())`,
         [usu_nombre, usu_email, usu_telefono, usu_apodo],
         (err, data, fill) => {
+            if (err) {
+                res.send(err);
+            }
             res.send("Datos subidos con exito");
         }
     );

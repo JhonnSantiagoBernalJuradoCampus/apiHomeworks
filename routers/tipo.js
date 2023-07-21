@@ -33,6 +33,9 @@ appTipo.post('/', proxyTipo ,(req, res) => {
         /*sql */`INSERT INTO tipo (tipo_nombre, tipo_created_at) VALUES (?, CURDATE());`,
         tipo_nombre,
         (err, data, fill) => {
+            if (err) {
+                res.send(err);
+            }
             res.send("Datos subidos con exito");
         }
     )

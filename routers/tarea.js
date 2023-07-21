@@ -21,5 +21,30 @@ appTarea.get('/:id?', proxyIds, (req, res) => {
         }
     )
 })
+appTarea.post('/', (req,res)=>{
+    /**
+     * @var {req.body}
+     * req.body = {
+            "tarea_titulo": "Fullstack",
+            "tarea_descripcion": "Realizar un proyecto con node y vue",
+            "tarea_fecha": "2023-07-29",
+            "tarea_recordatorio": "2023-07-29 09:00:00",
+            "id_user": 2,
+            "id_tipo": 3
+        }
+     */
+    const {tarea_titulo, tarea_descripcion, tarea_fecha, tarea_recordatorio, id_user, id_tipo } = req.body;
+    con.query(
+        `INSERT INTO tarea (tarea_titulo, tarea_descripcion, tarea_fecha, tarea_recordatorio, tarea_created_at, id_user, id_tipo) VALUES (?,?,?,?,CURDATE(),?,?)`,
+        [tarea_titulo, tarea_descripcion, tarea_fecha, tarea_recordatorio, id_user, id_tipo],
+        (err,data,fill) =>{
+            if (err) {
+                res.send(err);
+            }
+            res.send(`Datos subidos con exito`);
+        }
+
+    )
+})
 
 export default appTarea;
