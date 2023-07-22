@@ -16,3 +16,14 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
     <img src="./assets/nodemon.png" alt="nodemon Logo" width="100">
     <img src="./assets/npm.png" alt="npm Logo" width="100">
 </div>
+
+# Dependencias instaladas
+- express
+- nodemon
+- mysql2
+- typescript
+- reflect-metadata
+- dotenv
+- class-validator
+- class-transformer
+- validator
