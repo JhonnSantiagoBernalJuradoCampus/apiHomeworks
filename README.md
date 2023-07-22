@@ -57,3 +57,7 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 ```
 ## Delete
 1. Eliminar user: `http://127.12.1.4:5510/user/eliminar/:id`
+# Estado
+## Get
+1. Mostrar todos los user: `http://127.12.1.4:5510/estado`
+2. Mostrar un user en especifico: `http://127.12.1.4:5510/estado/:id`
