@@ -61,3 +61,17 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 ## Get
 1. Mostrar todos los estado: `http://127.12.1.4:5510/estado`
 2. Mostrar un estado en especifico: `http://127.12.1.4:5510/estado/:id`
+# Tipo
+## Get
+1. Mostrar todos los tipo: `http://127.12.1.4:5510/tipo`
+2. Mostrar un tipo en especifico: `http://127.12.1.4:5510/tipo/:id`
+## Post
+1. Agregar tipo `http://127.12.1.4:5510/tipo/agregar`
+2. 2. Ejemplo de los datos a pasar en el post
+```js
+{
+    "nombre": "Sociales", 
+}
+```
+## Delete
+1. Eliminar tipo: `http://127.12.1.4:5510/tipo/:id`

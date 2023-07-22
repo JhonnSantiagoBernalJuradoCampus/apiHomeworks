@@ -21,7 +21,7 @@ appTipo.get('/:id?', proxyIds , (req, res) => {
         }
     )
 })
-appTipo.post('/', proxyTipo ,(req, res) => {
+appTipo.post('/agregar', proxyTipo ,(req, res) => {
     /**
      * @var {req.body}
      * req.body ={
