@@ -67,7 +67,7 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 2. Mostrar un tipo en especifico: `http://127.12.1.4:5510/tipo/:id`
 ## Post
 1. Agregar tipo `http://127.12.1.4:5510/tipo/agregar`
-2. 2. Ejemplo de los datos a pasar en el post
+2. Ejemplo de los datos a pasar en el post
 ```js
 {
     "nombre": "Sociales", 
@@ -75,3 +75,22 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 ```
 ## Delete
 1. Eliminar tipo: `http://127.12.1.4:5510/tipo/eliminar/:id`
+# Tarea
+## Get
+1. Mostar todas las tarea: `http://127.12.1.4:5510/tarea`
+2. Mostrar una tarea en especifico: `http://127.12.1.4:5510/tarea/:id`
+## Post
+1. Agregar una tarea: `http://127.12.1.4:5510/tarea/agregar`
+2. Ejemplo de los datos a pasar en el post
+```js
+{
+    "titulo": "Fullstack",
+    "descripcion": "Realizar un proyecto con node y vue",
+    "fecha": "2023-07-29",
+    "recordatorio": "2023-07-29 09:00:00",
+    "user": 2,
+    "tipo": 3
+}
+```
+## Delete
+1. Eliminar una tarea: `http://127.12.1.4:5510/tarea/eliminar/:id`

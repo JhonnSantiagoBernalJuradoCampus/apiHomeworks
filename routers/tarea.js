@@ -22,7 +22,7 @@ appTarea.get('/:id?', proxyIds, (req, res) => {
         }
     )
 })
-appTarea.post('/',proxyTarea, (req,res)=>{
+appTarea.post('/agregar',proxyTarea, (req,res)=>{
     /**
      * @var {req.body}
      * req.body = {
@@ -46,7 +46,7 @@ appTarea.post('/',proxyTarea, (req,res)=>{
         }
     )
 })
-appTarea.delete('/:id',proxyIds ,(req,res)=>{
+appTarea.delete('/eliminar/:id',proxyIds ,(req,res)=>{
     con.query(
         /*sql */`DELETE FROM tarea WHERE tarea_id = ?`,
         req.params.id,
