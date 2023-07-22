@@ -29,11 +29,11 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 - validator
 # Endpoints
 1. Para acceder a los enpoints deberá ingresar a la ruta: `http://127.12.1.4:5510`
-## user
-### Get
+# User
+## Get
 1. Mostrar todos los user: `http://127.12.1.4:5510/user`
 2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
-### Post
+## Post
 1. Agregar user: `http://127.12.1.4:5510/user/agregar`
 2. Ejemplo de los datos a pasar en el post
 ```js
@@ -44,7 +44,7 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
     "apodo": "Angie"
 }
 ```
-### Put
+## Put
 1. Editar un user: `http://127.12.1.4:5510/user/editar/:id`
 2. Ejemplo de los datos a pasar en el put
 ```js
@@ -55,5 +55,5 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
     "apodo": "Angie"
 }
 ```
-### Delete
+## Delete
 1. Eliminar user: `http://127.12.1.4:5510/user/eliminar/:id`
