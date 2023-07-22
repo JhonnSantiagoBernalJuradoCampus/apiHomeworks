@@ -74,4 +74,4 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 }
 ```
 ## Delete
-1. Eliminar tipo: `http://127.12.1.4:5510/tipo/:id`
+1. Eliminar tipo: `http://127.12.1.4:5510/tipo/eliminar/:id`

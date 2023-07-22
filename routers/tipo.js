@@ -40,7 +40,7 @@ appTipo.post('/agregar', proxyTipo ,(req, res) => {
         }
     )
 })
-appTipo.delete('/:id', proxyIds, (req,res) =>{
+appTipo.delete('/eliminar/:id', proxyIds, (req,res) =>{
     con.query(
         /*sql */`DELETE FROM tipo WHERE tipo_id = ?`,
         req.params.id,
