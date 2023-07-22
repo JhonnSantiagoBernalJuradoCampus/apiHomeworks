@@ -23,15 +23,15 @@ appUser.get('/:id?', proxyIds, (req, res) => {
     )
 });
 
-appUser.post('/', proxyUser, (req, res) => {
+appUser.post('/agregar', proxyUser, (req, res) => {
     /**
      * @var {req.body}
      * req.body =
      *  {
-            "usu_nombre": "Angela Esperanza Almeida Xd", 
-            "usu_email": "angelajurado@gmail.com", 
-            "usu_telefono": "3118124321", 
-            "usu_apodo": "Angie"
+            "nombre": "Angela Esperanza Almeida Xd", 
+            "email": "angelajurado@gmail.com", 
+            "telefono": "3118124321", 
+            "apodo": "Angie"
         }
     */
 
@@ -46,7 +46,7 @@ appUser.post('/', proxyUser, (req, res) => {
         }
     );
 })
-appUser.put('/:id', proxyUser, proxyIds, (req, res) => {
+appUser.put('/editar/:id', proxyUser, proxyIds, (req, res) => {
     /**
      * @var {req.body, req.id}
      *  req.body = {
@@ -73,7 +73,7 @@ appUser.put('/:id', proxyUser, proxyIds, (req, res) => {
         }
     )
 })
-appUser.delete("/:id", proxyIds, (req,res)=>{
+appUser.delete("/eliminar/:id", proxyIds, (req,res)=>{
     con.query(
         /*sql */`DELETE FROM user WHERE usu_id = ?`,
         req.params.id,
