@@ -84,12 +84,12 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 2. Ejemplo de los datos a pasar en el post
 ```js
 {
-    "titulo": "Fullstack",
-    "descripcion": "Realizar un proyecto con node y vue",
-    "fecha": "2023-07-29",
-    "recordatorio": "2023-07-29 09:00:00",
-    "user": 2,
-    "tipo": 3
+    "tarea_titulo": "Fullstack",
+    "tarea_descripcion": "Realizar un proyecto con node y vue",
+    "tarea_fecha": "2023-07-29",
+    "tarea_recordatorio": "2023-07-28",
+    "id_user": 2,
+    "id_tipo": 3
 }
 ```
 ## Delete
