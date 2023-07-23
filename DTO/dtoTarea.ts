@@ -1,55 +1,49 @@
 import {Expose, Transform} from "class-transformer";
-import {IsDateString} from "class-validator"
+import {IsDate, IsDefined, IsString,IsInt, Max, Min} from "class-validator"
 import validator from "validator";
-const {isInt} = validator;
 /* req.body = {
     "tarea_titulo": "Fullstack",
     "tarea_descripcion": "Realizar un proyecto con node y vue",
     "tarea_fecha": "2023-07-29",
-    "tarea_recordatorio": "2023-07-29 09:00:00",
+    "tarea_recordatorio": "2023-07-28",
     "id_user": 2,
     "id_tipo": 3
 }
 */
 
 export class dtoTarea {
-    @Expose({name: "titulo"})
-    @Transform(({value})=>{
-        if (/^[a-zA-Z\s]+$/.test(value)) return value;
-        else throw { status: 400, message: "Error en el parámetro titulo" };
-    })
+    @Expose({name: "tarea_titulo"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro tarea_titulo es obligatorio"}}})
+    @IsString({message: ()=>{throw{status:400,message:"Error en el parametro tarea_titulo"}}})
     tarea_titulo: String;
-    @Expose({name: "descripcion"})
-    @Transform(({value})=>{
-        if (/^[a-zA-Z\s]+$/.test(value)) return value;
-        else throw { status: 400, message: "Error en el parámetro descripcion" };
-    })
+    
+    @Expose({name: "tarea_descripcion"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro tarea_descripcion es obligatorio"}}})
+    @IsString({message: ()=>{throw{status:400,message:"Error en el parametro tarea_descripcion"}}})
     tarea_descripcion: String;
-    @Expose({name: "fecha"})
-    @IsDateString()
-    @Transform(({value})=>{
-        if(/^(?:\d{4}-\d{2}-\d{2})$/.test(value)) return value;
-        else throw { status: 400, message: "Error en el parámetro fecha" };
-    })
+    
+    @Expose({name: "tarea_fecha"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro tarea_fecha es obligatorio"}}})
+    @IsString({message: ()=>{throw{status:400,message:"Error en el parametro tarea_fecha"}}})
     tarea_fecha: String;
-    @Expose({name: "recordatorio"})
-    @IsDateString()
-    @Transform(({value})=>{
-        if(/^(?:\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2})?)$/.test(value)) return value;
-        else throw { status: 400, message: "Error en el parámetro recordatorio" };
-    })
+
+    @Expose({name: "tarea_recordatorio"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro tarea_recordatorio es obligatorio"}}})
+    @IsString({message: ()=>{throw{status:400,message:"Error en el parametro tarea_recordatorio"}}})
     tarea_recordatorio: string;
-    @Expose({name: "user"})
-    @Transform(({value})=>{
-        if(isInt(value, {min:0, max:100})) return value;
-        else throw {status: 400, message: "Error en el parametro user"}
-    })
+    
+    @Expose({name: "id_user"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro id_user es obligatorio"}}})
+    @IsInt({message: ()=>{throw{status:400,message:"Error en el parametro id_user"}}})
+    @Min(0, {message: ()=>{throw{status:400,message:"El parametro id_user no puede ser menos a 1"}}})
+    @Max(100, {message: ()=>{throw{status:400,message:"El parametro id_user no puede ser mayor a 100"}}})
     id_user: number;
-    @Expose({name: "tipo"})
-    @Transform(({value})=>{
-        if(isInt(value, {min:0, max:100})) return value;
-        else throw {status: 400, message: "Error en el parametro tipo"}
-    })
+    
+    @Expose({name: "id_tipo"})
+    @IsDefined({message: ()=>{throw{status:400,message:"El parametro id_tipo es obligatorio"}}})
+    @IsInt({message: ()=>{throw{status:400,message:"Error en el parametro id_tipo"}}})
+    @Min(0, {message: ()=>{throw{status:400,message:"El parametro id_tipo no puede ser menos a 1"}}})
+    @Max(100, {message: ()=>{throw{status:400,message:"El parametro id_tipo no puede ser mayor a 100"}}})
     id_tipo: number;
     constructor(tarea_titulo: string,tarea_descripcion: string, tarea_fecha: string, tarea_recordatorio: string, id_user: number, id_tipo: number){
         this.tarea_titulo = tarea_titulo;

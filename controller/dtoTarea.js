@@ -7,15 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Expose, Transform } from "class-transformer";
-import { IsDateString } from "class-validator";
-import validator from "validator";
-const { isInt } = validator;
+import { Expose } from "class-transformer";
+import { IsDefined, IsString, IsInt, Max, Min } from "class-validator";
 /* req.body = {
     "tarea_titulo": "Fullstack",
     "tarea_descripcion": "Realizar un proyecto con node y vue",
     "tarea_fecha": "2023-07-29",
-    "tarea_recordatorio": "2023-07-29 09:00:00",
+    "tarea_recordatorio": "2023-07-28",
     "id_user": 2,
     "id_tipo": 3
 }
@@ -31,64 +29,42 @@ export class dtoTarea {
     }
 }
 __decorate([
-    Expose({ name: "titulo" }),
-    Transform(({ value }) => {
-        if (/^[a-zA-Z\s]+$/.test(value))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parámetro titulo" };
-    }),
+    Expose({ name: "tarea_titulo" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro tarea_titulo es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "Error en el parametro tarea_titulo" }; } }),
     __metadata("design:type", String)
 ], dtoTarea.prototype, "tarea_titulo", void 0);
 __decorate([
-    Expose({ name: "descripcion" }),
-    Transform(({ value }) => {
-        if (/^[a-zA-Z\s]+$/.test(value))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parámetro descripcion" };
-    }),
+    Expose({ name: "tarea_descripcion" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro tarea_descripcion es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "Error en el parametro tarea_descripcion" }; } }),
     __metadata("design:type", String)
 ], dtoTarea.prototype, "tarea_descripcion", void 0);
 __decorate([
-    Expose({ name: "fecha" }),
-    IsDateString(),
-    Transform(({ value }) => {
-        if (/^(?:\d{4}-\d{2}-\d{2})$/.test(value))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parámetro fecha" };
-    }),
+    Expose({ name: "tarea_fecha" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro tarea_fecha es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "Error en el parametro tarea_fecha" }; } }),
     __metadata("design:type", String)
 ], dtoTarea.prototype, "tarea_fecha", void 0);
 __decorate([
-    Expose({ name: "recordatorio" }),
-    IsDateString(),
-    Transform(({ value }) => {
-        if (/^(?:\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2})?)$/.test(value))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parámetro recordatorio" };
-    }),
+    Expose({ name: "tarea_recordatorio" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro tarea_recordatorio es obligatorio" }; } }),
+    IsString({ message: () => { throw { status: 400, message: "Error en el parametro tarea_recordatorio" }; } }),
     __metadata("design:type", String)
 ], dtoTarea.prototype, "tarea_recordatorio", void 0);
 __decorate([
-    Expose({ name: "user" }),
-    Transform(({ value }) => {
-        if (isInt(value, { min: 0, max: 100 }))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parametro user" };
-    }),
+    Expose({ name: "id_user" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro id_user es obligatorio" }; } }),
+    IsInt({ message: () => { throw { status: 400, message: "Error en el parametro id_user" }; } }),
+    Min(0, { message: () => { throw { status: 400, message: "El parametro id_user no puede ser menos a 1" }; } }),
+    Max(100, { message: () => { throw { status: 400, message: "El parametro id_user no puede ser mayor a 100" }; } }),
     __metadata("design:type", Number)
 ], dtoTarea.prototype, "id_user", void 0);
 __decorate([
-    Expose({ name: "tipo" }),
-    Transform(({ value }) => {
-        if (isInt(value, { min: 0, max: 100 }))
-            return value;
-        else
-            throw { status: 400, message: "Error en el parametro tipo" };
-    }),
+    Expose({ name: "id_tipo" }),
+    IsDefined({ message: () => { throw { status: 400, message: "El parametro id_tipo es obligatorio" }; } }),
+    IsInt({ message: () => { throw { status: 400, message: "Error en el parametro id_tipo" }; } }),
+    Min(0, { message: () => { throw { status: 400, message: "El parametro id_tipo no puede ser menos a 1" }; } }),
+    Max(100, { message: () => { throw { status: 400, message: "El parametro id_tipo no puede ser mayor a 100" }; } }),
     __metadata("design:type", Number)
 ], dtoTarea.prototype, "id_tipo", void 0);

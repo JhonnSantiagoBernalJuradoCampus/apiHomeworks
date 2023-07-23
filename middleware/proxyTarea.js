@@ -1,14 +1,24 @@
 import "reflect-metadata";
 import { plainToClass } from "class-transformer";
+import { validate } from "class-validator";
 import { dtoTarea } from "../controller/dtoTarea.js";
 
-const proxyTarea = (req,res,next)=>{
+const proxyTarea = async (req,res,next)=>{
     try{
-        let data = plainToClass(dtoTarea, req.body, {strategy: "excludeAll"})
-        req.body = data;
-        next();
-    } catch (error) {
-        res.status(error.status).send(error.message);
+        const newTarea = new dtoTarea();
+        Object.assign(newTarea, req.body);
+        try {
+            const validationErrors = await validate(newTarea);
+            let data = plainToClass(dtoTarea, req.body, {excludeExtraneousValues: true})
+            req.body = data;
+            console.log(req.body);
+            next()
+        } catch (error) {
+            console.log(error);
+            res.status(error.status).send(error.message);
+        }
+    } catch (err){
+        console.log(err);
     }
 }
 

@@ -23,7 +23,7 @@ CREATE TABLE tarea(
     tarea_titulo VARCHAR(100) NOT NULL,
     tarea_descripcion VARCHAR(255) NOT NULL,
     tarea_fecha DATE NOT NULL,
-    tarea_recordatorio DATETIME NOT NULL,
+    tarea_recordatorio DATE NOT NULL,
     tarea_created_at TIMESTAMP,
     tarea_updated_at TIMESTAMP,
     id_user INT,
