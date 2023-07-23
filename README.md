@@ -18,6 +18,9 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
     <img src="./assets/npm.png" alt="npm Logo" width="100">
 </div>
 
+# Instalacion del proyecto
+Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`.
+El cual instalara todas las dependencias utilizadas
 # Dependencias instaladas
 - express
 - nodemon
