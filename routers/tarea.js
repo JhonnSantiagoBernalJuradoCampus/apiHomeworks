@@ -29,7 +29,7 @@ appTarea.post('/agregar',proxyTarea, (req,res)=>{
             "tarea_titulo": "Fullstack",
             "tarea_descripcion": "Realizar un proyecto con node y vue",
             "tarea_fecha": "2023-07-29",
-            "tarea_recordatorio": "2023-07-29 09:00:00",
+            "tarea_recordatorio": "2023-07-28",
             "id_user": 2,
             "id_tipo": 3
         }
