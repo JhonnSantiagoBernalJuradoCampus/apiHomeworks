@@ -48,7 +48,7 @@ appUser.post('/agregar', proxyUser, (req, res) => {
 })
 appUser.put('/editar/:id', proxyUser, proxyIds, (req, res) => {
     /**
-     * @var {req.body, req.id}
+     * @var {req.body, req.params.id}
      *  req.body = {
             "nombre": "Angela Esperanza Almeida Suarez", 
             "email": "angelajurado@gmail.com", 

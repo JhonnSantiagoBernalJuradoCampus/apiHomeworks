@@ -46,6 +46,35 @@ appTarea.post('/agregar',proxyTarea, (req,res)=>{
         }
     )
 })
+appTarea.put('/editar/:id', proxyTarea, proxyIds,(req,res)=>{
+    /**
+     * @var {req.body, req.params.id}
+     * req.body = {
+            "tarea_titulo": "Fullstack",
+            "tarea_descripcion": "Realizar un proyecto con node y vue",
+            "tarea_fecha": "2023-07-29",
+            "tarea_recordatorio": "2023-07-28",
+            "id_user": 2,
+            "id_tipo": 3
+        }
+     */
+    con.query(
+        /*sql */`SELECT * FROM tarea WHERE tarea_id = ?`,
+        req.params.id,
+        (err, data, fill) => {
+            (Object.entries(data).length === 0)
+                ? res.status(400).send("Dato no encontrado")
+                : con.query(
+                /*sql */`UPDATE tarea SET ? WHERE tarea_id = ?`,
+                    [req.body, req.params.id],
+                    (err, data, fill) => {
+                        if (err) console.log(err);
+                        res.send("Datos actualizados correctamente");
+                    }
+                )
+        }
+    )
+})
 appTarea.delete('/eliminar/:id',proxyIds ,(req,res)=>{
     con.query(
         /*sql */`DELETE FROM tarea WHERE tarea_id = ?`,
