@@ -47,10 +47,10 @@ DB_CONFIG = {}
 2. Ejemplo de los datos a pasar en el post
 ```js
 {
-    "nombre": "Angela Esperanza Almeida Xd", 
-    "email": "angelajurado@gmail.com", 
-    "telefono": "3118124321", 
-    "apodo": "Angie"
+    "usu_nombre": "Angela Esperanza Almeida Xd", 
+    "usu_email": "angelajurado@gmail.com", 
+    "usu_telefono": "3118124321", 
+    "usu_apodo": "Angie"
 }
 ```
 ## Put
@@ -58,10 +58,10 @@ DB_CONFIG = {}
 2. Ejemplo de los datos a pasar en el put
 ```js
 {
-    "nombre": "Angela Esperanza Almeida Suarez", 
-    "email": "angelajurado@gmail.com", 
-    "telefono": "3118124321", 
-    "apodo": "Angie"
+    "usu_nombre": "Angela Esperanza Almeida Suarez", 
+    "usu_email": "angelajurado@gmail.com", 
+    "usu_telefono": "3118124321", 
+    "usu_apodo": "Angie"
 }
 ```
 ## Delete
