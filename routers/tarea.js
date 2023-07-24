@@ -21,7 +21,6 @@ appTarea.get('/user/:id', proxyIds ,(req,res)=>{
             res.send(data);
         }
     )
-    res.send(req.params)
 })
 appTarea.get('/:id?', proxyIds, (req, res) => {
     let sql = (req.params.id)
