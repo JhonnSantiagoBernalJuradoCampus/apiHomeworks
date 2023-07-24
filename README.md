@@ -96,5 +96,18 @@ El cual instalara todas las dependencias utilizadas
     "id_tipo": 3
 }
 ```
+## Put
+1. Editar una tarea: `http://127.12.1.4:5510/tarea/editar/:id`
+2. Ejemplo de los datos a pasar en el put:
+```js
+{
+    "tarea_titulo": "Fullstack",
+    "tarea_descripcion": "Realizar un proyecto con node y react",
+    "tarea_fecha": "2023-07-29",
+    "tarea_recordatorio": "2023-07-28",
+    "id_user": 2,
+    "id_tipo": 3
+}
+```
 ## Delete
 1. Eliminar una tarea: `http://127.12.1.4:5510/tarea/eliminar/:id`

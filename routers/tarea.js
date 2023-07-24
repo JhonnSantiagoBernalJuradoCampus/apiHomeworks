@@ -51,7 +51,7 @@ appTarea.put('/editar/:id', proxyTarea, proxyIds,(req,res)=>{
      * @var {req.body, req.params.id}
      * req.body = {
             "tarea_titulo": "Fullstack",
-            "tarea_descripcion": "Realizar un proyecto con node y vue",
+            "tarea_descripcion": "Realizar un proyecto con node y react",
             "tarea_fecha": "2023-07-29",
             "tarea_recordatorio": "2023-07-28",
             "id_user": 2,
