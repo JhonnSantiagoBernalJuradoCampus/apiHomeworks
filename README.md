@@ -81,8 +81,9 @@ El cual instalara todas las dependencias utilizadas
 1. Eliminar tipo: `http://127.12.1.4:5510/tipo/eliminar/:id`
 # Tarea
 ## Get
-1. Mostar todas las tarea: `http://127.12.1.4:5510/tarea`
-2. Mostrar una tarea en especifico: `http://127.12.1.4:5510/tarea/:id`
+1. Mostrar todas las tareas que tiene un user en especifico dentro de los proximos 7 dias: `http://127.12.1.4:5510/tarea/user/:id` 
+2. Mostar todas las tarea: `http://127.12.1.4:5510/tarea`
+3. Mostrar una tarea en especifico: `http://127.12.1.4:5510/tarea/:id`
 ## Post
 1. Agregar una tarea: `http://127.12.1.4:5510/tarea/agregar`
 2. Ejemplo de los datos a pasar en el post
