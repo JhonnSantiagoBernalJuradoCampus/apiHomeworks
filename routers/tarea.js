@@ -10,6 +10,19 @@ const appTarea = Router();
 const dbConfig = JSON.parse(process.env.DB_CONFIG);
 const con = mysql.createPool(dbConfig);
 
+appTarea.get('/user/:id', proxyIds ,(req,res)=>{
+    con.query(
+        `SELECT u.usu_nombre, t.tarea_id, t.tarea_titulo, t.tarea_descripcion, t.tarea_fecha, t.tarea_recordatorio FROM tarea AS t JOIN user AS u ON t.id_user = u.usu_id WHERE t.id_user = ${req.params.id} AND t.id_estado = 1 AND t.tarea_fecha BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY);`,
+        (err,data,fill)=>{
+            if (err) {
+                console.log(err);
+                res.status(400).send("Error al obtener datos")
+            }
+            res.send(data);
+        }
+    )
+    res.send(req.params)
+})
 appTarea.get('/:id?', proxyIds, (req, res) => {
     let sql = (req.params.id)
         ? ['SELECT * FROM tarea WHERE tarea_id = ?', req.params.id]
