@@ -22,9 +22,10 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 - Debera crear el archivo .env y agregarle los datos que estan en el .env.example:
 ```js
 MY_CONFIG = {"hostname": "127.12.1.4", "port": 5510}
-DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "campus2023", "database": "homeworks_db"}
+DB_CONFIG = {}
 ```
 - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
+- 
 # Dependencias instaladas
 - express
 - nodemon
