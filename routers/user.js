@@ -50,10 +50,10 @@ appUser.put('/editar/:id', proxyUser, proxyIds, (req, res) => {
     /**
      * @var {req.body, req.params.id}
      *  req.body = {
-            "nombre": "Angela Esperanza Almeida Suarez", 
-            "email": "angelajurado@gmail.com", 
-            "telefono": "3118124321", 
-            "apodo": "Angie"
+            "usu_nombre": "Angela Esperanza Almeida Suarez", 
+            "usu_email": "angelajurado@gmail.com", 
+            "usu_telefono": "3118124321", 
+            "usu_apodo": "Angie"
      *      }
      */
     con.query(
