@@ -2,14 +2,14 @@ import { Expose, Transform } from "class-transformer";
 import validator from "validator";
 const { isEmail} = validator;
 export class dtoUser{
-    @Expose({ name: "nombre" })
+    @Expose({ name: "usu_nombre" })
     @Transform(({ value }) => {
         if (/^[a-zA-Z\s]+$/.test(value)) return value;
         else throw { status: 400, message: "Error en el parámetro nombre" };
     })
     usu_nombre: String;
 
-    @Expose({ name: "email" })
+    @Expose({ name: "usu_email" })
     @Transform(({ value }) => {
         if (typeof value === 'number') {
             throw { status: 400, message: "Error en el parámetro email" };
@@ -19,14 +19,14 @@ export class dtoUser{
     })
     usu_email: String;
 
-    @Expose({ name: "telefono" })
+    @Expose({ name: "usu_telefono" })
     @Transform(({ value }) => {
         if (Math.floor(value)) return Math.floor(value);
         else throw { status: 400, message: "Error en el parametro telefono"}
     })
     usu_telefono: number;
 
-    @Expose({ name: "apodo" })
+    @Expose({ name: "usu_apodo" })
     @Transform(({ value }) => {
         if (/^[a-zA-Z\s]+$/.test(value)) return value;
         else throw { status: 400, message: "Error en el parametro apodo" }

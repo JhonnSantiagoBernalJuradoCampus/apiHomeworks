@@ -19,7 +19,7 @@ export class dtoUser {
     }
 }
 __decorate([
-    Expose({ name: "nombre" }),
+    Expose({ name: "usu_nombre" }),
     Transform(({ value }) => {
         if (/^[a-zA-Z\s]+$/.test(value))
             return value;
@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:type", String)
 ], dtoUser.prototype, "usu_nombre", void 0);
 __decorate([
-    Expose({ name: "email" }),
+    Expose({ name: "usu_email" }),
     Transform(({ value }) => {
         if (typeof value === 'number') {
             throw { status: 400, message: "Error en el parámetro email" };
@@ -42,7 +42,7 @@ __decorate([
     __metadata("design:type", String)
 ], dtoUser.prototype, "usu_email", void 0);
 __decorate([
-    Expose({ name: "telefono" }),
+    Expose({ name: "usu_telefono" }),
     Transform(({ value }) => {
         if (Math.floor(value))
             return Math.floor(value);
@@ -52,7 +52,7 @@ __decorate([
     __metadata("design:type", Number)
 ], dtoUser.prototype, "usu_telefono", void 0);
 __decorate([
-    Expose({ name: "apodo" }),
+    Expose({ name: "usu_apodo" }),
     Transform(({ value }) => {
         if (/^[a-zA-Z\s]+$/.test(value))
             return value;

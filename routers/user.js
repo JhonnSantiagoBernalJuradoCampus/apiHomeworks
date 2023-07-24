@@ -28,13 +28,13 @@ appUser.post('/agregar', proxyUser, (req, res) => {
      * @var {req.body}
      * req.body =
      *  {
-            "nombre": "Angela Esperanza Almeida Xd", 
-            "email": "angelajurado@gmail.com", 
-            "telefono": "3118124321", 
-            "apodo": "Angie"
+            "usu_nombre": "Angela Esperanza Almeida Xd", 
+            "usu_email": "angelajurado@gmail.com", 
+            "usu_telefono": "3118124321", 
+            "usu_apodo": "Angie"
         }
     */
-
+    const {usu_nombre, usu_email, usu_telefono, usu_apodo} = req.body;
     con.query(
         /*sql */`INSERT INTO user (usu_nombre,usu_email,usu_telefono, usu_apodo, usu_created_at) VALUES (?,?,?,?,CURDATE())`,
         [usu_nombre, usu_email, usu_telefono, usu_apodo],
