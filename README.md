@@ -84,6 +84,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 ]
 ```
 ### 2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
+#### - Debera cambiar el parametro `:id` por un numero
 - Ejemplo de datos de salida
 ```js
 [
@@ -99,7 +100,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 ]
 ```
 ## Post
-1. Agregar user: `http://127.12.1.4:5510/user/agregar`
+### 1. Agregar user: `http://127.12.1.4:5510/user/agregar`
 2. Ejemplo de los datos a pasar en el post
 ```js
 {
@@ -110,7 +111,8 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 }
 ```
 ## Put
-1. Editar un user: `http://127.12.1.4:5510/user/editar/:id`
+### 1. Editar un user: `http://127.12.1.4:5510/user/editar/:id`
+#### - Debera cambiar el parametro `:id` por un numero
 2. Ejemplo de los datos a pasar en el put
 ```js
 {
@@ -120,8 +122,6 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
     "usu_apodo": "Angie"
 }
 ```
-## Delete
-1. Eliminar user: `http://127.12.1.4:5510/user/eliminar/:id`
 # Estado
 ## Get
 1. Mostrar todos los estado: `http://127.12.1.4:5510/estado`
