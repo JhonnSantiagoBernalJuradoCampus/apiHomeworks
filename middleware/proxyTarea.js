@@ -11,7 +11,6 @@ const proxyTarea = async (req,res,next)=>{
             const validationErrors = await validate(newTarea);
             let data = plainToClass(dtoTarea, req.body, {excludeExtraneousValues: true})
             req.body = data;
-            console.log(req.body);
             next()
         } catch (error) {
             console.log(error);

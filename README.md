@@ -46,7 +46,7 @@ JWT_PRIVATE_KEY = "Hola"
 # Endpoints
 # Token
 1. Para poder ingresar a todos los enpoints deberá crear su token de verificacion en: `http://127.12.1.4:5510/token`
-2. Debera copiar el token y ponerlo en los headers ejemplo:
+2. Debera copiar el token y ponerlo en los headers en Authorization ejemplo:
 ![token](./assets/token.png)
 # User
 ## Get
@@ -208,11 +208,117 @@ JWT_PRIVATE_KEY = "Hola"
 ```
 ## Delete
 1. Eliminar tipo: `http://127.12.1.4:5510/tipo/eliminar/:id`
+- Debera cambiar el parametro `:id` por un numero
 # Tarea
 ## Get
-1. Mostrar todas las tareas que tiene un user en especifico dentro de los proximos 7 dias: `http://127.12.1.4:5510/tarea/user/:id` 
+1. Mostrar todas las tareas que tiene un user en especifico dentro de los proximos 7 dias: `http://127.12.1.4:5510/tarea/user/:id`
+- Debera cambia el parametro `:id` por un numero
+- Ejemplo de los datos de salida cuando el id es 1:
+```js
+[
+  {
+    "usu_nombre": "Jhon Santiago Bernal Jurado",
+    "tarea_id": 1,
+    "tarea_titulo": "Backend",
+    "tarea_descripcion": "Realizar un proyecto con node",
+    "tarea_fecha": "2023-07-30T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-29T05:00:00.000Z"
+  },
+  {
+    "usu_nombre": "Jhon Santiago Bernal Jurado",
+    "tarea_id": 2,
+    "tarea_titulo": "Figma",
+    "tarea_descripcion": "Realizar un figma de una pagina web",
+    "tarea_fecha": "2023-07-29T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-28T05:00:00.000Z"
+  }
+]
+```
 2. Mostar todas las tarea: `http://127.12.1.4:5510/tarea`
+- Ejemplo de los datos de salida:
+```js
+[
+  {
+    "tarea_id": 1,
+    "tarea_titulo": "Backend",
+    "tarea_descripcion": "Realizar un proyecto con node",
+    "tarea_fecha": "2023-07-30T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-29T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 1,
+    "id_estado": 1,
+    "id_tipo": 3
+  },
+  {
+    "tarea_id": 2,
+    "tarea_titulo": "Figma",
+    "tarea_descripcion": "Realizar un figma de una pagina web",
+    "tarea_fecha": "2023-07-29T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-28T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 1,
+    "id_estado": 1,
+    "id_tipo": 2
+  },
+  {
+    "tarea_id": 3,
+    "tarea_titulo": "Presentacion",
+    "tarea_descripcion": "Hacer un video de presentacion personal en ingles",
+    "tarea_fecha": "2023-07-25T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-24T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 2,
+    "id_estado": 1,
+    "id_tipo": 1
+  },
+  {
+    "tarea_id": 4,
+    "tarea_titulo": "Frontend",
+    "tarea_descripcion": "Hacer una pagina de venta de zapatos con bootstrap 5",
+    "tarea_fecha": "2023-07-23T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-22T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 2,
+    "id_estado": 1,
+    "id_tipo": 3
+  },
+  {
+    "tarea_id": 5,
+    "tarea_titulo": "Ecuaciones",
+    "tarea_descripcion": "Resolver todo el taller de ecuaciones de la universidad",
+    "tarea_fecha": "2023-07-24T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-23T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 1,
+    "id_estado": 1,
+    "id_tipo": 4
+  }
+]
+```
 3. Mostrar una tarea en especifico: `http://127.12.1.4:5510/tarea/:id`
+- Debera cambiar el parametro `:id` por un numero
+- Ejemplo de los datos de salida cuando el id es 1:
+```js
+[
+  {
+    "tarea_id": 1,
+    "tarea_titulo": "Backend",
+    "tarea_descripcion": "Realizar un proyecto con node",
+    "tarea_fecha": "2023-07-30T05:00:00.000Z",
+    "tarea_recordatorio": "2023-07-29T05:00:00.000Z",
+    "tarea_created_at": "2023-07-26T05:00:00.000Z",
+    "tarea_updated_at": null,
+    "id_user": 1,
+    "id_estado": 1,
+    "id_tipo": 3
+  }
+]
+```
 ## Post
 1. Agregar una tarea: `http://127.12.1.4:5510/tarea/agregar`
 2. Ejemplo de los datos a pasar en el post
@@ -228,6 +334,7 @@ JWT_PRIVATE_KEY = "Hola"
 ```
 ## Put
 1. Editar una tarea: `http://127.12.1.4:5510/tarea/editar/:id`
+- Debera cambiar el parametro `:id` por un numero
 2. Ejemplo de los datos a pasar en el put:
 ```js
 {
@@ -241,3 +348,4 @@ JWT_PRIVATE_KEY = "Hola"
 ```
 ## Delete
 1. Eliminar una tarea: `http://127.12.1.4:5510/tarea/eliminar/:id`
+- Debera cambiar el parametro `:id` por un numero.
