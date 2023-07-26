@@ -26,6 +26,8 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 ```
 - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
 - Deberas ejecutar el comando `npm run dev`
+# Despliegue de la base de datos
+1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el scrip de el archivo de la carpeta db homeworks_db.sql.
 # Dependencias instaladas
 - express
 - nodemon
@@ -37,7 +39,6 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 - class-transformer
 - validator
 # Endpoints
-1. Para acceder a los enpoints deberá ingresar a la ruta: `http://127.12.1.4:5510`
 # User
 ## Get
 1. Mostrar todos los user: `http://127.12.1.4:5510/user`
