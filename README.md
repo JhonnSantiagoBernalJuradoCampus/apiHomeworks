@@ -27,7 +27,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
 - Deberas ejecutar el comando `npm run dev`
 # Despliegue de la base de datos
-1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el scrip de el archivo de la carpeta db homeworks_db.sql.
+1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo de la carpeta db homeworks_db.sql.
 # Dependencias instaladas
 - express
 - nodemon
@@ -41,8 +41,63 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 # Endpoints
 # User
 ## Get
-1. Mostrar todos los user: `http://127.12.1.4:5510/user`
-2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
+### 1. Mostrar todos los user: `http://127.12.1.4:5510/user`
+- Ejemplo de datos de salida
+```js
+[
+  {
+    "usu_id": 1,
+    "usu_nombre": "Jhon Santiago Bernal Jurado",
+    "usu_email": "jbernalsantiago11@gmail.com",
+    "usu_telefono": "3123860656",
+    "usu_apodo": "Bernal",
+    "usu_created_at": "2023-07-26T05:00:00.000Z",
+    "usu_updated_at": null
+  },
+  {
+    "usu_id": 2,
+    "usu_nombre": "Angie Nathalia Suarez Perez",
+    "usu_email": "angienatalia@gmail.com",
+    "usu_telefono": "3118128060",
+    "usu_apodo": "Angie",
+    "usu_created_at": "2023-07-26T05:00:00.000Z",
+    "usu_updated_at": null
+  },
+  {
+    "usu_id": 3,
+    "usu_nombre": "Angela Esperanza Almeida Amaya",
+    "usu_email": "angela@gmail.com",
+    "usu_telefono": "3118124232",
+    "usu_apodo": "Angela",
+    "usu_created_at": "2023-07-26T05:00:00.000Z",
+    "usu_updated_at": null
+  },
+  {
+    "usu_id": 4,
+    "usu_nombre": "James Ronald Bernal Bermudez",
+    "usu_email": "ronald@gmail.com",
+    "usu_telefono": "312741832",
+    "usu_apodo": "James",
+    "usu_created_at": "2023-07-26T05:00:00.000Z",
+    "usu_updated_at": null
+  }
+]
+```
+### 2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
+- Ejemplo de datos de salida
+```js
+[
+  {
+    "usu_id": 1,
+    "usu_nombre": "Jhon Santiago Bernal Jurado",
+    "usu_email": "jbernalsantiago11@gmail.com",
+    "usu_telefono": "3123860656",
+    "usu_apodo": "Bernal",
+    "usu_created_at": "2023-07-26T05:00:00.000Z",
+    "usu_updated_at": null
+  }
+]
+```
 ## Post
 1. Agregar user: `http://127.12.1.4:5510/user/agregar`
 2. Ejemplo de los datos a pasar en el post
