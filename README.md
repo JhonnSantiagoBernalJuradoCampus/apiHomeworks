@@ -29,7 +29,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 3. Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
 4. Deberas ejecutar el comando `npm run dev` el cual iniciara a correr el servidor
 # Despliegue de la base de datos
-1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo de el archivo db/homeworks_db.sql.
+1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo db/homeworks_db.sql.
 # Dependencias instaladas
 - express
 - nodemon
