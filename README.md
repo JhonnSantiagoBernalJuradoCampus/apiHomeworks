@@ -25,6 +25,7 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 ```js
 MY_CONFIG = {"hostname": "127.12.1.4", "port": 5510}
 DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "campus2023", "database": "homeworks_db"}
+JWT_PRIVATE_KEY = "Hola"
 ```
 3. Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
 4. Deberas ejecutar el comando `npm run dev` el cual iniciara a correr el servidor
@@ -43,6 +44,10 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 - jose
 - nanoid
 # Endpoints
+# Token
+1. Para poder ingresar a todos los enpoints deberá crear su token de verificacion en: `http://127.12.1.4:5510/token`
+2. Debera copiar el token y ponerlo en los headers ejemplo:
+![token](./assets/token.png)
 # User
 ## Get
 1. Mostrar todos los user: `http://127.12.1.4:5510/user`

@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import {nanoid} from "nanoid";
 
 import { SignJWT } from 'jose';
 
@@ -8,9 +9,9 @@ let appJWT = express();
 
 appJWT.use(express.json());
 
-appJWT.get('/:id', async(req,res)=>{
+appJWT.get('/', async(req,res)=>{
     let usuario = {
-        id: req.params.id
+        id: nanoid()
     }
     const encoder = new TextEncoder();
     const jwtconstructor = new SignJWT({usuario});
