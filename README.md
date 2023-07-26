@@ -19,14 +19,14 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 </div>
 
 # Instalacion del proyecto
-### 1. Debe clonar el repositorio `https://github.com/JhonnSantiagoBernalJuradoCampus/apiHomeworks.git`
+1. Debe clonar el repositorio `https://github.com/JhonnSantiagoBernalJuradoCampus/apiHomeworks.git`
 
-### 2. Debera crear el archivo .env y agregarle los datos que estan en el .env.example:
+2. Debera crear el archivo .env y agregarle los datos que estan en el .env.example:
 ```js
 MY_CONFIG = {"hostname": "127.12.1.4", "port": 5510}
 DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "campus2023", "database": "homeworks_db"}
 ```
-### 3. - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
+3. - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
 - Deberas ejecutar el comando `npm run dev`
 # Despliegue de la base de datos
 1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo de la carpeta db homeworks_db.sql.
@@ -43,7 +43,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 # Endpoints
 # User
 ## Get
-### 1. Mostrar todos los user: `http://127.12.1.4:5510/user`
+1. Mostrar todos los user: `http://127.12.1.4:5510/user`
 - Ejemplo de datos de salida
 ```js
 [
@@ -85,8 +85,8 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
   }
 ]
 ```
-### 2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
-#### - Debera cambiar el parametro `:id` por un numero
+2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
+- Debera cambiar el parametro `:id` por un numero
 - Ejemplo de datos de salida
 ```js
 [
@@ -102,7 +102,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 ]
 ```
 ## Post
-### 1. Agregar user: `http://127.12.1.4:5510/user/agregar`
+1. Agregar user: `http://127.12.1.4:5510/user/agregar`
 2. Ejemplo de los datos a pasar en el post
 ```js
 {
@@ -113,8 +113,8 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 }
 ```
 ## Put
-### 1. Editar un user: `http://127.12.1.4:5510/user/editar/:id`
-#### - Debera cambiar el parametro `:id` por un numero
+1. Editar un user: `http://127.12.1.4:5510/user/editar/:id`
+- Debera cambiar el parametro `:id` por un numero
 2. Ejemplo de los datos a pasar en el put
 ```js
 {
