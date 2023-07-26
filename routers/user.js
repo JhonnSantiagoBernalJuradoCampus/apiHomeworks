@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mysql from "mysql2";
 import proxyUser from "../middleware/proxyUser.js";
 import proxyIds from "../middleware/proxyIds.js";
+import { validateToken } from "../middleware/proxyJwt.js";
 dotenv.config();
 const appUser = Router();
 
@@ -10,7 +11,7 @@ let dbConfig = JSON.parse(process.env.DB_CONFIG);
 const con = mysql.createPool(dbConfig);
 
 
-appUser.get('/:id?', proxyIds, (req, res) => {
+appUser.get('/:id?', validateToken ,proxyIds, (req, res) => {
     const sql = (req.params.id)
         ? [`SELECT * FROM user WHERE usu_id = ?`, req.params.id]
         : [`SELECT * FROM user`];
@@ -23,7 +24,7 @@ appUser.get('/:id?', proxyIds, (req, res) => {
     )
 });
 
-appUser.post('/agregar', proxyUser, (req, res) => {
+appUser.post('/agregar', validateToken, proxyUser, (req, res) => {
     /**
      * @var {req.body}
      * req.body =
@@ -46,7 +47,7 @@ appUser.post('/agregar', proxyUser, (req, res) => {
         }
     );
 })
-appUser.put('/editar/:id', proxyUser, proxyIds, (req, res) => {
+appUser.put('/editar/:id', validateToken ,proxyUser, proxyIds, (req, res) => {
     /**
      * @var {req.body, req.params.id}
      *  req.body = {

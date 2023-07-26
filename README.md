@@ -40,6 +40,8 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 - class-validator
 - class-transformer
 - validator
+- jose
+- nanoid
 # Endpoints
 # User
 ## Get

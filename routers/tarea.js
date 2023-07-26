@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mysql from "mysql2";
 import proxyIds from "../middleware/proxyIds.js";
 import proxyTarea from "../middleware/proxyTarea.js";
+import { validateToken } from "../middleware/proxyJwt.js";
 dotenv.config();
 
 const appTarea = Router();
@@ -10,7 +11,7 @@ const appTarea = Router();
 const dbConfig = JSON.parse(process.env.DB_CONFIG);
 const con = mysql.createPool(dbConfig);
 
-appTarea.get('/user/:id', proxyIds ,(req,res)=>{
+appTarea.get('/user/:id', validateToken ,proxyIds ,(req,res)=>{
     con.query(
         `SELECT u.usu_nombre, t.tarea_id, t.tarea_titulo, t.tarea_descripcion, t.tarea_fecha, t.tarea_recordatorio FROM tarea AS t JOIN user AS u ON t.id_user = u.usu_id WHERE t.id_user = ${req.params.id} AND t.id_estado = 1 AND t.tarea_fecha BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY);`,
         (err,data,fill)=>{
@@ -22,7 +23,7 @@ appTarea.get('/user/:id', proxyIds ,(req,res)=>{
         }
     )
 })
-appTarea.get('/:id?', proxyIds, (req, res) => {
+appTarea.get('/:id?', validateToken ,proxyIds, (req, res) => {
     let sql = (req.params.id)
         ? ['SELECT * FROM tarea WHERE tarea_id = ?', req.params.id]
         : ['SELECT * FROM tarea']
@@ -34,7 +35,7 @@ appTarea.get('/:id?', proxyIds, (req, res) => {
         }
     )
 })
-appTarea.post('/agregar',proxyTarea, (req,res)=>{
+appTarea.post('/agregar',validateToken,proxyTarea, (req,res)=>{
     /**
      * @var {req.body}
      * req.body = {
@@ -58,7 +59,7 @@ appTarea.post('/agregar',proxyTarea, (req,res)=>{
         }
     )
 })
-appTarea.put('/editar/:id', proxyTarea, proxyIds,(req,res)=>{
+appTarea.put('/editar/:id', validateToken ,proxyTarea, proxyIds,(req,res)=>{
     /**
      * @var {req.body, req.params.id}
      * req.body = {
@@ -87,7 +88,7 @@ appTarea.put('/editar/:id', proxyTarea, proxyIds,(req,res)=>{
         }
     )
 })
-appTarea.delete('/eliminar/:id',proxyIds ,(req,res)=>{
+appTarea.delete('/eliminar/:id',validateToken,proxyIds ,(req,res)=>{
     con.query(
         /*sql */`DELETE FROM tarea WHERE tarea_id = ?`,
         req.params.id,

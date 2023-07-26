@@ -4,10 +4,12 @@ import appUser from "./routers/user.js";
 import appEstado from "./routers/estado.js";
 import appTipo from "./routers/tipo.js";
 import appTarea from "./routers/tarea.js";
+import appJWT from "./routers/jwt.js"
 dotenv.config();
 let appExpress = express();
 
 appExpress.use(express.json());
+appExpress.use('/token', appJWT);
 appExpress.use('/user', appUser);
 appExpress.use('/estado', appEstado);
 appExpress.use('/tipo', appTipo);

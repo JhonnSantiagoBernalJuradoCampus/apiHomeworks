@@ -3,13 +3,14 @@ import dotenv from "dotenv";
 import mysql from "mysql2";
 import proxyTipo from "../middleware/proxyTipo.js";
 import proxyIds from "../middleware/proxyIds.js";
+import { validateToken } from "../middleware/proxyJwt.js";
 dotenv.config();
 const appTipo = Router();
 
 let dbConfig = JSON.parse(process.env.DB_CONFIG);
 const con = mysql.createPool(dbConfig);
 
-appTipo.get('/:id?', proxyIds , (req, res) => {
+appTipo.get('/:id?',validateToken, proxyIds , (req, res) => {
     let sql = (req.params.id)
         ? ["SELECT * FROM tipo WHERE tipo_id = ?",req.params.id]
         : ["SELECT * FROM tipo"]
@@ -21,7 +22,7 @@ appTipo.get('/:id?', proxyIds , (req, res) => {
         }
     )
 })
-appTipo.post('/agregar', proxyTipo ,(req, res) => {
+appTipo.post('/agregar',validateToken, proxyTipo ,(req, res) => {
     /**
      * @var {req.body}
      * req.body ={
@@ -40,7 +41,7 @@ appTipo.post('/agregar', proxyTipo ,(req, res) => {
         }
     )
 })
-appTipo.delete('/eliminar/:id', proxyIds, (req,res) =>{
+appTipo.delete('/eliminar/:id', validateToken ,proxyIds, (req,res) =>{
     con.query(
         /*sql */`DELETE FROM tipo WHERE tipo_id = ?`,
         req.params.id,
