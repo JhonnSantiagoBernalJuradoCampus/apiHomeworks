@@ -21,15 +21,15 @@ Implementar una funcionalidad en la API de tareas que permita filtrar y mostrar 
 # Instalacion del proyecto
 1. Debe clonar el repositorio `https://github.com/JhonnSantiagoBernalJuradoCampus/apiHomeworks.git`
 
-2. Debera crear el archivo .env y agregarle los datos que estan en el .env.example:
+2. Debera crear el archivo `.env` y agregarle los datos que estan en el `.env.example`:
 ```js
 MY_CONFIG = {"hostname": "127.12.1.4", "port": 5510}
 DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "campus2023", "database": "homeworks_db"}
 ```
-3. - Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
-- Deberas ejecutar el comando `npm run dev`
+3. Deberas abrir la terminal de tu editor de codigo y ejecutar el comando `npm i`. El cual instalara todas las dependencias utilizadas
+4. Deberas ejecutar el comando `npm run dev` el cual iniciara a correr el servidor
 # Despliegue de la base de datos
-1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo de la carpeta db homeworks_db.sql.
+1. Debes ingresar a phpmyadmin y darle en el boton sql para ingresar el script de el archivo de el archivo db/homeworks_db.sql.
 # Dependencias instaladas
 - express
 - nodemon
@@ -87,7 +87,7 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 ```
 2. Mostrar un user en especifico: `http://127.12.1.4:5510/user/:id`
 - Debera cambiar el parametro `:id` por un numero
-- Ejemplo de datos de salida
+- Ejemplo de datos de salida cuando el id es 1
 ```js
 [
   {
@@ -127,7 +127,30 @@ DB_CONFIG = {"host": "localhost", "port":"3306", "user": "campus", "password": "
 # Estado
 ## Get
 1. Mostrar todos los estado: `http://127.12.1.4:5510/estado`
+- Ejemplo de datos de salida:
+```js
+[
+  {
+    "estado_id": 1,
+    "estado_nombre": "Pendiente"
+  },
+  {
+    "estado_id": 2,
+    "estado_nombre": "Realizada"
+  }
+]
+```
 2. Mostrar un estado en especifico: `http://127.12.1.4:5510/estado/:id`
+- Debera cambiar el parametro `:id` por un numero
+- Ejemplo de los datos de salida cuando el id es 1:
+```js
+[
+  {
+    "estado_id": 1,
+    "estado_nombre": "Pendiente"
+  }
+]
+```
 # Tipo
 ## Get
 1. Mostrar todos los tipo: `http://127.12.1.4:5510/tipo`
