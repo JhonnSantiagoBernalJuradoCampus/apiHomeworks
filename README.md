@@ -161,13 +161,49 @@ JWT_PRIVATE_KEY = "Hola"
 # Tipo
 ## Get
 1. Mostrar todos los tipo: `http://127.12.1.4:5510/tipo`
+- Ejemplo de los datos de salida:
+```js
+[
+  {
+    "tipo_id": 1,
+    "tipo_nombre": "Ingles",
+    "tipo_created_at": "2023-07-26T05:00:00.000Z"
+  },
+  {
+    "tipo_id": 2,
+    "tipo_nombre": "Ser",
+    "tipo_created_at": "2023-07-26T05:00:00.000Z"
+  },
+  {
+    "tipo_id": 3,
+    "tipo_nombre": "Skills",
+    "tipo_created_at": "2023-07-26T05:00:00.000Z"
+  },
+  {
+    "tipo_id": 4,
+    "tipo_nombre": "Matematicas",
+    "tipo_created_at": "2023-07-26T05:00:00.000Z"
+  }
+]
+```
 2. Mostrar un tipo en especifico: `http://127.12.1.4:5510/tipo/:id`
+- Debera cambiar el parametro `:id` por un numero
+- ejemplo de los datos de salida cuando el :id es 1:
+```js
+[
+  {
+    "tipo_id": 1,
+    "tipo_nombre": "Ingles",
+    "tipo_created_at": "2023-07-26T05:00:00.000Z"
+  }
+]
+```
 ## Post
 1. Agregar tipo `http://127.12.1.4:5510/tipo/agregar`
 2. Ejemplo de los datos a pasar en el post
 ```js
 {
-    "nombre": "Sociales", 
+    "nombre": "Sociales"
 }
 ```
 ## Delete

@@ -18,7 +18,7 @@ appJWT.get('/', async(req,res)=>{
     const jwt = await jwtconstructor
     .setProtectedHeader({alg: "HS256", typ: "JWT"})
     .setIssuedAt()
-    .setExpirationTime("3600s")
+    .setExpirationTime("6600s")
     .sign(encoder.encode(process.env.JWT_PRIVATE_KEY));
     res.send({jwt});
 });
